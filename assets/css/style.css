@@ -1,0 +1,31 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f3f3f3;
+}
+
+label {
+  color: #000;
+  padding-bottom: 0.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 2rem 0;
+  border: none;
+}
+
+input {
+  outline: unset;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+.submit-btn {
+  background-color: #d3f3d3;
+  border: 0;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
