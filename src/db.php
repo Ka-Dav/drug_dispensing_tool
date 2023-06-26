@@ -42,7 +42,7 @@ class DB
         if ($this->connection->query($sql) === TRUE) {
             return array("status"=>TRUE);
         } else {
-            return array("status"=>FALSE,"message"=>$this->connection->$conn->error);
+            return array("status"=>FALSE,"message"=>$this->connection->error);
         }
     }
 
@@ -58,7 +58,7 @@ class DB
         if ($this->connection->query($sql) === TRUE) {
             return array("status"=>TRUE);
         } else {
-            return array("status"=>FALSE,"message"=>$this->connection->$conn->error);
+            return array("status"=>FALSE,"message"=>$this->connection->error);
         }
     }
 
@@ -71,15 +71,11 @@ class DB
 
         $result = $this->connection->query($sql);
   
-        if ($result->num_rows > 0) {
             $rows = array();
             while ($row = $result->fetch_assoc()) {
                 $rows[] = $row;
             }
             return array("status"=>TRUE,"message"=>$rows);
-        } else {
-            return array("status"=>FALSE,"message"=>$this->connection->$conn->error);
-        }
     }
 
     public function delete($table, $where) {
@@ -88,7 +84,7 @@ class DB
         if ($this->connection->query($sql) === TRUE) {
             return array("status"=>TRUE);
         } else {
-            return array("status"=>FALSE,"message"=>$this->connection->$conn->error);
+            return array("status"=>FALSE,"message"=>$this->connection->error);
         }
     }
 }

@@ -28,7 +28,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
      </select>
      <br><br>
 
-    <input type="submit" value="Login"/>
+    <input type="submit" />
    </form>
 
   </body>
