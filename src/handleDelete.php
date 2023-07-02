@@ -15,7 +15,7 @@ if (isset($_GET['s']) && $_GET['t']) {
     }
     $whereStmt = 'SSN='.$ssn;
     $db->delete($table, $whereStmt);
-    header("location: ../public/viewUsers.php");
+    header("location: ../public/admin/index.php");
 } else {
     echo "Please provide the SSN.";
 }

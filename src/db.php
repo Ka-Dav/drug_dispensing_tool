@@ -42,7 +42,7 @@ class DB
         if ($this->connection->query($sql) === TRUE) {
             return array("status"=>TRUE);
         } else {
-            return array("status"=>FALSE,"message"=>$this->connection->error);
+            return array("status"=>FALSE,"data"=>$this->connection->error);
         }
     }
 
@@ -58,7 +58,7 @@ class DB
         if ($this->connection->query($sql) === TRUE) {
             return array("status"=>TRUE);
         } else {
-            return array("status"=>FALSE,"message"=>$this->connection->error);
+            return array("status"=>FALSE,"data"=>$this->connection->error);
         }
     }
 
@@ -66,16 +66,15 @@ class DB
         $sql = "SELECT * FROM $table";
         
         if ($where) {
-            $sql .= " WHERE $where";
+            $sql .= " WHERE $where;";
         }
 
         $result = $this->connection->query($sql);
-  
-            $rows = array();
-            while ($row = $result->fetch_assoc()) {
-                $rows[] = $row;
-            }
-            return array("status"=>TRUE,"message"=>$rows);
+         $rows = array();
+        while ($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
+        return array("status"=>TRUE,"data"=>$rows);
     }
 
     public function delete($table, $where) {
@@ -84,7 +83,7 @@ class DB
         if ($this->connection->query($sql) === TRUE) {
             return array("status"=>TRUE);
         } else {
-            return array("status"=>FALSE,"message"=>$this->connection->error);
+            return array("status"=>FALSE,"data"=>$this->connection->error);
         }
     }
 }

@@ -2,7 +2,7 @@
   session_start();
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   $role = $_SESSION['role'];
-   header("location: ../public/$role.php");
+   header("location: ../$role/index.php");
     die();
 }
 ?>
@@ -12,7 +12,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   </head>
   <body>
    <h1>LOGIN PAGE</h1>
-   <form action="../src/loginHandler.php" method="POST">
+   <form action="../../src/loginHandler.php" method="POST">
   
     <label for="ssn">SNN:</label>  
     <input type="text" id="ssn" name="ssn" required><br><br>
@@ -25,10 +25,11 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
      <option value="patient">Patient</option>
      <option value="doctor">Doctor</option>
      <option value="pharmacist">Pharmacist</option>
+     <option value="admin">Admin</option>
      </select>
      <br><br>
 
-    <input type="submit" />
+    <input type="submit" value="Login"/>
    </form>
 
   </body>

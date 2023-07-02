@@ -20,6 +20,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         case 'pharmacist':
             $table = 'pharmacists';
             break;
+        case 'admin':
+            $table = 'admins';
+            break;
         default:
             onError("Fill in all the fields");
     }
@@ -30,12 +33,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
         session_start();
         $_SESSION["loggedin"] = true;
-        $_SESSION["ssn"] = $user['ssn'];
+        $_SESSION["ssn"] = $user['SSN'];
         $_SESSION["fname"] = $user['fname'];
         $_SESSION["lname"] = $user['lname'];
         $_SESSION["role"] = $role;
        
-       header("location: ../public/$role.php");
+       header("location: ../public/$role/index.php");
     }else {
        onError("Your Login Name or Password is invalid");
     }
@@ -44,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 function onError($message) {
       echo "Error: '$message'";
       echo "<br/>";
-      echo "<a href='../public/login.php'>Back to Login</a>";
+      echo "<a href='../public/auth/login.php'>Back to Login</a>";
       exit();
 }
 ?>
