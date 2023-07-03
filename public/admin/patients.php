@@ -9,7 +9,7 @@ $db = new DB();
 <html>
 <head>
     <title>Admin</title>
-    <link rel="stylesheet" href="admin.css"/>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
 </head>
 <body>
     <nav class="navbar">

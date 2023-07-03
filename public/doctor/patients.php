@@ -9,7 +9,7 @@ $db = new DB();
 <html>
 <head>
     <title>Doctor</title>
-    <link rel="stylesheet" href="doctor.css"/>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
 </head>
 <body>
     <nav class="navbar">
@@ -35,7 +35,7 @@ $db = new DB();
             <th>Address</th>
         </tr>
         <?php
-        $where = "SSN=".$login_session["SSN"];
+        $where = "primary_doctor=".$login_session["SSN"];
         $data = $db->select("patients",$where)["data"];
         // Generate table rows with data and buttons
         foreach ($data as $row) {

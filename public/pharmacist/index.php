@@ -9,7 +9,7 @@ $db = new DB();
 <html>
 <head>
     <title>Admin</title>
-    <link rel="stylesheet" href="pharmacist.css"/>
+    <link rel="stylesheet" href="../../assets/css/common.css"/>
 </head>
 <body>
     <nav class="navbar">
@@ -17,6 +17,7 @@ $db = new DB();
             <a href="#" class="active">Home</a> 
             <a href="#">Prescriptions</a>
             <a href="#">Dispense</a>
+            <a href="drugs.php">Inventory</a>
         </div>
         <div classs="nav-info">
             <span><?php echo $login_session["fname"];?></span>
