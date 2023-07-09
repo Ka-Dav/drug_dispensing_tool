@@ -13,7 +13,9 @@ $companies = $db->select("pharmaceutical_companies")["data"];
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>New Drug Form</h1>
+    <?php include 'nav.php'; ?>
+    <main>
+      <h1>New Drug Form</h1>
     <form action="../../src/drugs.php" method="POST">
       <label for="trade_name">Trade Name:</label>
       <input type="text" name="trade_name" required/><br/><br/>
@@ -45,5 +47,7 @@ $companies = $db->select("pharmaceutical_companies")["data"];
         <input type="hidden" name="method" value="new"/>
         <input type="submit" value="Submit">
     </form>
+    </main>
+    
   </body>
 </html>

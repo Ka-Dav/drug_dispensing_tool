@@ -68,7 +68,7 @@ class DB
         if ($where) {
             $sql .= " WHERE $where;";
         }
-        
+
         $result = $this->connection->query($sql);
          $rows = array();
         while ($row = $result->fetch_assoc()) {

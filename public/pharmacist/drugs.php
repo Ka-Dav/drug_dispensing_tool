@@ -12,19 +12,7 @@ $db = new DB();
     <link rel="stylesheet" href="../../assets/css/common.css"/>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-links">
-            <a href="index.php">Home</a> 
-            <a href="#">Prescriptions</a>
-            <a href="#">Dispense</a>
-            <a href="#" class="active">Inventory</a>
-        </div>
-        <div classs="nav-info">
-            <span><?php echo $login_session["fname"];?></span>
-            <img src="../../assets/images/user.png" alt="User Photo" width="20" height="20">
-            <a href="../../src/logout.php" class="btn delete">Logout</a>
-        </div>
-    </nav>
+    <?php include 'nav.php'; ?>
     <main>
         <h2>Inventory</h2>
         <a href="newDrug.php" class="button edit">New</a>

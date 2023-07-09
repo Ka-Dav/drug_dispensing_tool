@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Roboto Slab', serif;
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    color: inherit;
+    text-decoration: unset;
+}
+
+img{
+    width: 100%;
+}
+
+body{
+    background: #E6EDF5;
+}
+
+.section {
+    padding: 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section .header{
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section .header .title{
+    font-size: 2rem;
+}
+
+.section .header .subline{
+    text-align: center;
+    line-height: 2;
+}
+
+.section .content{
+    width: 100%;
+}
+
+
+
+.underline{
+    background: rgb(4,60,170);
+    background: linear-gradient(90deg, rgba(4,60,170,1) 50%, rgba(27,199,104,1) 50%);
+    width: 10rem;
+    height: 0.3rem;
+    margin-block: 1rem 2rem;
+    border-radius: .5rem;
+}
+
+.section__hero {
+    display: flex;
+    height: 80vh;
+    flex-direction: row;
+}
+
+.section__hero .content {
+    flex: 1;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    color: #000;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.section__hero .headline {
+    font-size: 3rem;
+    color: #225195;
+    
+}
+
+.section__hero .sub-headline {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2;
+    
+}
+
+.section__hero .illustration img{
+    width: 80%;
+}
+
+.section__hero .illustration {
+    flex:1;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.btn{
+    background-color: #225195;
+    padding: 1rem 2.5rem;
+    border-radius: 1rem;
+    color: #E6EDF5;
+    cursor: pointer;
+}
+
+.section__affiliations .content {
+    display: flex;
+    margin-top : 0;
+    margin-bottom: 3rem;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.section__affiliations .content .logo{
+    width: 10rem;
+}
+
+.section__benefits .benefits{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.section__benefits .benefit{
+    display: flex;
+    gap: 15rem;
+}
+
+.section__benefits .benefit:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+.section__benefits .content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.section__benefits .benefit .content .title{
+    font-size: 1.7rem;
+    color: #043CAA;
+}
+
+.section__benefits .benefit .content .description{
+    font-size: 1.2rem;
+    line-height: 2;
+}
+
+.section__benefits .benefit .illustration {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: flex-start ;
+    align-items: start;
+    height: 30rem;
+}
+
+.section__benefits .benefit .image{
+    width: 20rem;
+    margin: 6rem 9rem;
+}
+
+.section__benefits .benefit .blob{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    width: 35rem;
+}
+
+.footer{
+    background-color: #225195;
+    display: flex;
+    color: #fff;
+    flex-direction: row;
+    padding: 5rem 5rem;
+    justify-content: space-evenly;
+}
+
+.footer .brand {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    gap: 2rem;
+}
+
+.footer .logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.footer .tag{
+    font-size: .8rem;
+    color :#E6EDF5
+}
+
+.footer .links{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.footer .links .items{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.footer .rights{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

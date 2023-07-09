@@ -11,7 +11,7 @@ body {
   background-color: #f3f3f3;
 }
 
-.image {
+.illustration {
   flex: 1;
 }
 
@@ -19,27 +19,51 @@ img {
   width: 100%;
 }
 
-.login {
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left: 8rem;
+  justify-content: center;
   flex: 1;
-}
-
-.input-group {
-  padding: 0.3rem 1rem;
+  gap: 2rem
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 1rem;
+  width: 50%;
 }
 
 .input-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  margin-bottom: 1rem;
 }
 
-input {
-  padding: 0.3rem 1rem;
+.input-group label {
+  display: block;
+  margin-bottom: .3rem;
+}
+
+.input-group input[type="text"],
+  .input-group input[type="password"],
+  .input-group select {
+    width: 100%;
+    padding: .8rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.input-group select {
+  height: 3rem;
+}
+
+.btn {
+  display: block;
+  padding: 1rem 3rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #043CAA;
+  color: white;
+  cursor: pointer;
 }
