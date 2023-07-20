@@ -6,11 +6,11 @@
       // Route Protection
       
       if(!isset($_SESSION['loggedin']) || !$_SESSION['loggedin']){
-         header("../public/auth/login.php");
+         header("location:../public/auth/login.php");
       }
 
       if($_SESSION['role'] !== $route){
-         header("../public/auth/login.php");
+         header("location:../public/auth/login.php");
          die();
       }
    }

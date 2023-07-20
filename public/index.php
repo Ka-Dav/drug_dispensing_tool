@@ -8,11 +8,11 @@ $db = new DB();
 <html>
 <head>
     <title>LEGACY</title>
-    <link rel="stylesheet" href="../assets/css/common.css"/>
+    <link rel="stylesheet" href="../assets/css/styles.css"/>
     <link rel="stylesheet" href="../assets/css/index.css"/>
 </head>
 <body>
-    <nav class="navbar">
+    <div class="navbar">
         <div class="nav-logo">
             <span class="logo">LEGACY</span>
         </div>
@@ -34,12 +34,13 @@ $db = new DB();
                 echo "<a href='./auth/login.php' class='btn'>Login</a>";
             }
         ?>
-    </nav>
+    </div>
+
     <main>
         <section class="section section__hero" id="hero">
             <div class="content">
                 <h1 class="headline">Effortlessly Manage Your Medication</h1>
-                <p class="sub-headline">Introducing MediDose, the innovative medicine dispensing tool designed to simplify your daily medication routine. Say goodbye to the hassle of organizing and remembering your pills. With MediDose, you can easily manage your medication schedule, ensuring you never miss a dose again.</p>
+                <p class="sub-headline">Introducing Legacy, the innovative medicine dispensing tool designed to simplify your daily medication routine. Say goodbye to the hassle of organizing and remembering your pills. With Legacy, you can easily manage your medication schedule, ensuring you never miss a dose again.</p>
                 <a href="#benefits" class="btn btn-login">More Details</a>
             </div>
             <div class="illustration">
@@ -48,7 +49,7 @@ $db = new DB();
             
         </section>
 
-        <section class="section section__affiliations" id="partners">
+        <div class="section section__affiliations" id="partners">
             <header class="header">
                 <h2 class="title">Our Affiliations</h2>
                 <div class="underline"></div>
@@ -68,14 +69,14 @@ $db = new DB();
                     <img src="../assets/images/roche.svg" alt="roche" />
                 </div>
             </div>  
-        </section>
+        </div>
 
         <section class="section section__benefits" id="benefits">
             <header class="header">
                 <h2 class="title">Key Benefits</h2>
                 <div class="underline"></div>
             </header>
-            <div class="benefits">
+            <div class="benefits">  
                 <div class="benefit">
                     <div class="content">
                         <h3 class="title">Smart Dispensing Technology</h3>

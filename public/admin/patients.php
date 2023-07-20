@@ -5,17 +5,15 @@ checkRoute("admin");
 $db = new DB();
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Admin</title>
-    <link rel="stylesheet" href="../../assets/css/common.css"/>
-</head>
+<?php include 'header.php'; ?>
 <body>
     <?php include 'nav.php'; ?>
     <main>
-        <h2>Patients</h2>
-        <a href="newPatient.php" class="button edit">New</a>
+        <header>
+            <h2>Patients</h2>
+            <a href="newPatient.php" class="button edit">New</a>
+        </header>
+        
     <table>
         <tr>
             <th>SSN</th>

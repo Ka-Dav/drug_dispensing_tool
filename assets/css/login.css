@@ -9,6 +9,8 @@ body {
   width: 100%;
   font-family: 'Roboto', sans-serif;
   background-color: #f3f3f3;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .illustration {
@@ -45,7 +47,7 @@ img {
   margin-bottom: .3rem;
 }
 
-.input-group input[type="text"],
+.input-group input[type="number"],
   .input-group input[type="password"],
   .input-group select {
     width: 100%;
@@ -66,4 +68,9 @@ img {
   background-color: #043CAA;
   color: white;
   cursor: pointer;
+}
+
+.error{
+  color: #f44336;
+  font-weight: bold;
 }

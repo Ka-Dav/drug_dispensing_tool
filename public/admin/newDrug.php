@@ -1,17 +1,13 @@
 <?php
 require_once("../../src/db.php");
 include('../../src/session.php');
-checkRoute("pharmacist");
+checkRoute("admin");
 
 $db = new DB();
 $companies = $db->select("pharmaceutical_companies")["data"];
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Drugs</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
+
+<?php include 'header.php'; ?>
   <body>
     <?php include 'nav.php'; ?>
     <main>
@@ -28,11 +24,15 @@ $companies = $db->select("pharmaceutical_companies")["data"];
         
         <label for="weight">Weight:</label>
         <input type="text" name="weight" required/><br/><br/>
+
+        <label for="quantity">Quantity:</label>
+        <input type="text" name="quantity" required/><br/><br/>
+        
         
         <label for="drug_usage">Drug Usage:</label>
         <textarea name="drug_usage" required></textarea><br/><br/>
 
-        <label for="manufacturer_name">Manufacturer Name:</label>
+        <label for="manufacturer_name">Supplier:</label>
         <select name="manufacturer_name" id="manufacturer_name" required>
         <?php
             foreach($companies as $company){
@@ -48,6 +48,4 @@ $companies = $db->select("pharmaceutical_companies")["data"];
         <input type="submit" value="Submit">
     </form>
     </main>
-    
-  </body>
-</html>
+  </body>

@@ -1,7 +1,7 @@
 <?php
 require_once("../../src/db.php");
 include('../../src/session.php');
-checkRoute("pharmacist");
+checkRoute("admin");
 
 $db = new DB();
 $trade_name;
@@ -17,12 +17,7 @@ $data = $db->select($table,$where)["data"][0];
 $companies = $db->select("pharmaceutical_companies")["data"];
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Admin</title>
-</head>
-<body>
+<?php include 'header.php'; ?>
     <?php include 'nav.php'; ?>
     <main>
         <h1>Edit Data</h1>
@@ -61,7 +56,13 @@ $companies = $db->select("pharmaceutical_companies")["data"];
                 }
             ?>
             </select>
-            <br/><br/>
+            
+            <label for="price">Price:</label>
+            <input type="text" name="price" value="<?php echo $data['price']; ?>" required><br/><br/>
+
+            <label for="quantity">Quantity:</label>
+            <input type="text" name="quantity" value="<?php echo $data['quantity']; ?>" required><br/><br/>
+            
             <input hidden name="method" value="edit"/>
             <input type="submit" value="submit">
         </form>

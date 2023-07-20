@@ -5,17 +5,16 @@ checkRoute("admin");
 $db = new DB();
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Admin</title>
-    <link rel="stylesheet" href="../../assets/css/common.css"/>
-</head>
+<?php include 'header.php'; ?>
+
 <body>
     <?php include 'nav.php'; ?>
     <main>
-        <h2>Contracts with pharmaceutical companies</h2>
-        <button class="button edit">New</button>
+        <header>
+            <h2>Suppliers</h2>
+            <button class="button edit">New</button>
+        </header>
+        
     <table>
         <tr>
             <th>Company Name</th>
@@ -28,7 +27,7 @@ $db = new DB();
         // Generate table rows with data and buttons
         foreach ($data as $row) {
             echo '<tr>';
-            echo "<td>".$row['Company Name']??''."</td>";
+            echo "<td>".$row['name']??''."</td>";
             echo "<td>".$row['phone_number']??'' ."</td>";
             echo "<td>".$row['expiry_date']??'' ."</td>";
             echo '<td>

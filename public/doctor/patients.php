@@ -5,12 +5,7 @@ checkRoute("doctor");
 $db = new DB();
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Doctor</title>
-    <link rel="stylesheet" href="../../assets/css/common.css"/>
-</head>
+<?php include 'header.php'; ?>
 <body>
    <?php include 'nav.php'; ?>
     <main>
@@ -22,6 +17,7 @@ $db = new DB();
             <th>Last Name</th>
             <th>DOB</th>
             <th>Address</th>
+            <th>Action</th>
         </tr>
         <?php
         $where = "primary_doctor=".$login_session["SSN"];
@@ -34,6 +30,9 @@ $db = new DB();
             echo "<td>".$row['lname']??'' ."</td>";
             echo "<td>".$row['dob']??'' ."</td>";
             echo "<td>".$row['address']??'' ."</td>";
+            echo '<td>';
+            echo '<a href="viewPatient.php?s='.$row['SSN']. '" class="button edit">View</a>';
+            echo '</td>';
             echo '</tr>';
         }
         ?>

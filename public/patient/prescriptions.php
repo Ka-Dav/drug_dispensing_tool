@@ -5,22 +5,17 @@ checkRoute("patient");
 $db = new DB();
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Legacy</title>
-    <link rel="stylesheet" href="../../assets/css/common.css"/>
-</head>
+<?php include 'header.php'; ?>
 <body>
     <?php include 'nav.php'; ?>
     <main>
         <h2>Prescriptions</h2>
-        <a href="newPrescription.php" class="button edit">New</a>
     <table>
         <tr>
             <th>Doctor SSN</th>
             <th>Drug Name</th>
             <th>Quantity</th>
+            <th>Dispensed</th>
             <th>Date</th>
             <th>Action</th>
         </tr>
@@ -33,9 +28,10 @@ $db = new DB();
             echo "<td>".$row['doctor_ssn']??''."</td>";
             echo "<td>".$row['drug_name']??''."</td>";
             echo "<td>".$row['quantity']??'' ."</td>";
+            echo "<td>".($row['dispensed']?'True':'False')."</td>";
             echo "<td>".$row['date']??'' ."</td>";
             echo '<td>';
-            echo '<a href="prescription.php?d='.$row['doctor_ssn'].'" class="button edit">View</a>';
+            echo '<a href="prescription.php?i='.$row['id'].'" class="button edit">View</a>';
             echo '</td>';
             echo '</tr>';
         }

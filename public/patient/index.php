@@ -5,33 +5,36 @@ checkRoute("patient");
 $db = new DB();
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Patient</title>
-    <link rel="stylesheet" href="../../assets/css/common.css"/>
-</head>
+<?php include 'header.php'; ?>
 <body>
-    <?php include 'nav.php'; ?>
-    <main>
-        <h2>Home</h2>
-      <div class="user-details">
-    <img src="../../assets/images/user.png" alt="User Photo" style="width: 150px; height: 150px; border-radius: 50%;">
-    <h2>User Details</h2>
-    <?php
-      // Fetch user details from PHP
-      $ssn = $login_session["SSN"];
-      $fname = $login_session["fname"];
-      $lname = $login_session["lname"];
-      $role = $login_session["role"];
-
-      // Display user details
-      echo "<p><strong>SSN:</strong> " . $ssn . "</p>";
-      echo "<p><strong>Fist Name:</strong> " . $fname . "</p>";
-      echo "<p><strong>Last Name:</strong> " . $lname . "</p>";
-      echo "<p><strong>Role:</strong> " . $role . "</p>";
-    ?>
-  </div>
-    </main>
+  <?php include 'nav.php'; ?>
+  <main>
+    <div class="user-details">
+      <div class="image">
+        <img src="../../assets/images/user.png" alt="User Photo" style="width: 150px; height: 150px; border-radius: 50%;">
+      </div>
+  
+      <div class="details">
+        <h2>User Details</h2>
+        <div>
+          <?php
+            // Fetch user details from PHP
+            $details = [
+            "SSN" => $login_session["SSN"],
+            "First Name" => $login_session["fname"],
+            "Last Name" => $login_session["lname"],
+            "Role" => $login_session["role"]
+            ];
+            foreach($details as $name => $value){
+              echo "<div class='detail'>";
+              echo "<span class='label'>$name</span>";
+              echo "<span class='value'>$value</span>";
+              echo "</div>";
+            }
+          ?>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

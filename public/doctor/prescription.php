@@ -5,48 +5,48 @@ checkRoute("doctor");
 
 $db = new DB();
 $patient_ssn;
-$doctor_ssn;
+$id;
 
-if (isset($_GET['p'])) {
-    $doctor_ssn = $login_session["SSN"];
-    $patient_ssn = $_GET['p'];
+if (isset($_GET['i'])) {
+    $id=$_GET['i'];
 }
+
+$where = "id = $id";
+$data = $db->select("prescriptions",$where)["data"][0];
+
+$patient_ssn = $data['patient_ssn'];
+$doctor_ssn = $login_session["SSN"];
 
 $where = "SSN = ".$patient_ssn;
 $patientDetails = $db->select("patients",$where)["data"][0];
-
-$where = "patient_ssn=$patient_ssn AND doctor_ssn=$doctor_ssn";
-$data = $db->select("prescriptions",$where)["data"][0];
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="../../assets/css/common.css"/>
-    <title>Doctor</title>
-</head>
+<?php include 'header.php'; ?>
 <body>
     <?php include 'nav.php'; ?>
     <main>
         <h1>Prescription</h1>
         <form>
-            <label for="doctor_name">Patient Name:</label>
-            <input type="text" name="ssn" value="<?php echo $patientDetails['fname']." ".$patientDetails['lname']; ?>"><br><br>
+            <label for="patient_name">Patient Name:</label>
+            <input disabled id="patient_name" type="text" name="patient_name" value="<?php echo $patientDetails['fname']." ".$patientDetails['lname']; ?>"><br><br>
     
-            <label for="doctor_name">Patient Date of birth:</label>
-            <input type="text" name="ssn" value="<?php echo $patientDetails['dob']; ?>"><br><br>
+            <label for="patient_dob">Patient Date of birth:</label>
+            <input disabled type="text" name="patient_dob" id="patient_dob" value="<?php echo $patientDetails['dob']; ?>"><br><br>
     
             <label for="drug_name">Drug Name:</label>
-            <input type="text" name="drug_name" value="<?php echo $data['drug_name']; ?>"><br><br>
+            <input disabled type="text" name="drug_name" value="<?php echo $data['drug_name']; ?>"><br><br>
     
             <label for="quantity">Quantity:</label>
-            <input type="text" name="quantity" value="<?php echo $data['quantity']; ?>" required><br><br>
+            <input disabled type="text" name="quantity" value="<?php echo $data['quantity']; ?>" required><br><br>
             
+            <label for="quantity">Frequency:</label>
+            <input disabled type="text" name="frequency" value="<?php echo $data['frequency']; ?>" required><br><br>
+
             <label for="date">Date:</label>
-            <input type="datetime" name="date" value="<?php echo $data['date']; ?>" required><br><br>
+            <input disabled type="datetime" name="date" value="<?php echo $data['date']; ?>" required><br><br>
     
-            <label for="dispensed">dispensed:</label>
-            <input type="Text" name="dispensed" value="<?php echo $data['dispensed']?'True':'False'; ?>" required><br><br>
+            <label for="dispensed">Status:</label>
+            <input disabled type="Text" name="dispensed" value="<?php echo $data['dispensed']?'Dispensed':'Pending'; ?>" required><br><br>
         </form>
     </main>
 </body>

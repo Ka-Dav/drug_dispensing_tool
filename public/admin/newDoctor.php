@@ -1,32 +1,38 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Doctors</title>
-  </head>
+<?php 
+require_once("../../src/db.php");
+include('../../src/session.php');
+checkRoute("admin");
+?>
+
+<?php include 'header.php'; ?>
   <body>
     <?php include 'nav.php'; ?>
     <main>
-      <h1>Doctors Registration Form</h1>
+      <h2>Doctors Registration Form</h2>
       <form action="../../src/doctors.php" method="POST">
         <label for="ssn">SSN:</label>
         <input type="text" id="ssn" name="ssn" required><br><br>
         
         <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="fName" required><br><br>
+        <input type="text" id="firstName" name="fname" required><br><br>
         
         <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lName" required><br><br>
+        <input type="text" id="lastName" name="lname" required><br><br>
         
         <label for="address">Address:</label>
         <input type="text" id="address" name="address" required><br><br>
         
-        <label for="yoe">Age:</label>
+        <label for="yoe">Years of experience:</label>
         <input type="number" id="yoe" name="experience" required><br><br>
+
+        <label for="speciality">Speciality:</label>
+        <input type="text" id="speciality" name="speciality" required><br><br>
         
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
         
-        <input type="submit" value="Submit">
+        <input type="hidden" name="op" value="new"/>
+        <input type="submit" value="Register">
       </form>
     </main>
   </body>

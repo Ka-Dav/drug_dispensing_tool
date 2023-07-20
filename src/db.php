@@ -33,12 +33,28 @@ class DB
         return $result;
     }
 
+    public function getId($table, $column){
+        $id = 0;
+        $sql = "SELECT MAX($column) AS max FROM $table";
+        $result = $this->connection->query($sql);
+        $row = $result->fetch_assoc();
+        $max = $row["max"];
+
+        if($max == "NULL"){
+            $id = 1;
+        }
+        else{
+            $id = $max + 1;
+        }
+        return $id;
+    }
+
     public function insert($table, $data) {
         $columns = implode(", ", array_keys($data));
-        $values = "'" . implode("', '", array_values($data)) . "'";
+        $values = '"' . implode('", "', array_values($data)) . '"';
 
         $sql = "INSERT INTO $table ($columns) VALUES ($values)";
-
+        echo $sql;
         if ($this->connection->query($sql) === TRUE) {
             return array("status"=>TRUE);
         } else {

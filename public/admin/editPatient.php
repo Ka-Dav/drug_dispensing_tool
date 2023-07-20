@@ -12,22 +12,19 @@ if (isset($_GET['s'])) {
 }
 
 $where = "SSN=".$ssn;
-echo $where;
 $data = $db->select($table,$where)["data"][0];
+
+$doctors = $db->select("doctors")["data"];
 
 // Handle form submission
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Admin</title>
-</head>
+<?php include 'header.php'; ?>
 <body>
     <?php include 'nav.php'; ?>
     <main>
         <h1>Edit Data</h1>
-        <form method="POST" action="../../src/handleUpdate.php">
+        <form method="POST" action="../../src/patients.php">
             <label for="ssn">SSN:</label>
             <input type="text" name="ssn" value="<?php echo $data['SSN']; ?>"><br><br>
     
@@ -42,12 +39,28 @@ $data = $db->select($table,$where)["data"][0];
             
             <label for="dob">Date Of Birth:</label>
             <input type="date" name="dob" value="<?php echo $data['dob']; ?>" required><br><br>
+
+            <label for="doctor">Primary Doctor:</label>
+            <select name="doctor" id="doctor" required>
+                <?php
+                    foreach($doctors as $doctor){
+                        $name = $doctor["fname"] . " " . $doctor["lname"];
+                        $ssn = $doctor["SSN"];
+                        if($ssn == $data["primary_name"]){
+                            echo "<option value='$ssn' selected>$name</option>";
+                        }
+                        else {
+                            echo "<option value='$ssn'>$name</option>";
+                        }      
+                    }
+                ?>
+            </select>
     
             <label for="password">Password:</label>
             <input type="password" name="password" value="<?php echo $data['password']; ?>" required><br><br>
     
-            <input type="hidden" name="option" value="patient" />
-    
+            <input type="hidden" name="op" value="edit" />
+
             <input type="submit" value="submit">
         </form>
     </main>

@@ -10,11 +10,7 @@ $patients = $db->select("patients", $where)["data"];
 $drugs = $db->select("drugs")["data"];
 ?>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Patient</title>
-  </head>
+<?php include 'header.php'; ?>
   <body>
     <?php include 'nav.php'; ?>
     <main>
@@ -25,7 +21,8 @@ $drugs = $db->select("drugs")["data"];
         <?php
             foreach($patients as $patient){
               $ssn = $patient["SSN"];
-              echo "<option value='$ssn'>$ssn</option>";
+              $name = $patient["fname"]." ".$patient["lname"];
+              echo "<option value='$ssn'>$name</option>";
             }
         ?>
         </select>
@@ -44,6 +41,9 @@ $drugs = $db->select("drugs")["data"];
       
       <label for="quantity">Quantity:</label>
       <input type="number" id="quantity" name="quantity" required><br><br>
+      
+      <label for="frequency">Frequency:</label>
+      <input type="text" id="frequency" name="frequency" required><br><br>
 
       <input type="hidden" name="doctor_ssn" required value="<?php echo $login_session['SSN']; ?>"><br><br>
       <input type="hidden" id="date" name="date" value="<?php echo date("Y m d h:i");?>" required><br><br>
